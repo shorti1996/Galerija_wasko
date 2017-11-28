@@ -23,11 +23,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ButterKnife.bind(this);
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
 
         galleryRv.setLayoutManager(new GridLayoutManager(this, GRID_SPAN_COUNT));
         galleryRv.setAdapter(new GridGalleryAdapter(this, Utils.getImagesIdentifiers(this)));
