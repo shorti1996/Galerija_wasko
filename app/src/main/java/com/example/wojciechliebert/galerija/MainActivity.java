@@ -43,8 +43,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private ArrayList<Integer> getImagesIdentifiers() {
-
-        int resID = 0;
+        int resID;
         int imgnum = 1;
         ArrayList<Integer> images = new ArrayList<>();
 
