@@ -5,6 +5,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.wojciechliebert.galerija.Adapters.GalleryPagerAdapter;
+import com.example.wojciechliebert.galerija.Animations.DepthPageTransformer;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -12,7 +13,7 @@ import butterknife.ButterKnife;
 public class PagerActivity extends AppCompatActivity {
 
     @BindView(R.id.viewpager)
-    ViewPager viewPager;
+    ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,7 @@ public class PagerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pager);
         ButterKnife.bind(this);
 
-        viewPager.setAdapter(new GalleryPagerAdapter(this, Utils.getImagesIdentifiers(this), viewPager));
+        mViewPager.setAdapter(new GalleryPagerAdapter(this, Utils.getImagesIdentifiers(this), mViewPager));
+        mViewPager.setPageTransformer(true, new DepthPageTransformer());
     }
 }

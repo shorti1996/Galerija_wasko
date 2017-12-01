@@ -1,5 +1,6 @@
 package com.example.wojciechliebert.galerija.Adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -51,6 +52,14 @@ public class GalleryPagerAdapter extends PagerAdapter {
         mViewPager.addOnPageChangeListener(mOnPageChangedLoopingListener);
         mOnPageChangedLoopingListener.prepare();
         notifyDataSetChanged();
+        final int index = ((Activity) mContext).getIntent().getIntExtra(GridGalleryAdapter.IMAGE_INDEX_EXTRA, 0);
+        post(new Runnable() {
+            @Override
+            public void run() {
+                mViewPager.setCurrentItem(index + 1, false);
+            }
+        });
+
     }
 
     @Override

@@ -2,7 +2,6 @@ package com.example.wojciechliebert.galerija.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -21,6 +20,8 @@ import java.util.ArrayList;
  */
 
 public class GridGalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    public static final String IMAGE_INDEX_EXTRA = "image-index-extra";
+
     private Context mContext;
     private ArrayList<Integer> mImageList;
 
@@ -43,9 +44,15 @@ public class GridGalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         @Override
         public void onClick(View view) {
             Intent intent = new Intent(mContext, PagerActivity.class);
-            Bundle bundle = new Bundle(10);
-            bundle.putIntegerArrayList("list", mImageList);
+            intent.putExtra(IMAGE_INDEX_EXTRA, getAdapterPosition());
             mContext.startActivity(intent);
+
+            // Don't because the adapter is fucking stoopid
+//            Pair<View, String> p1 = Pair.create(((View) galleryImage), "image_transition");
+//            ActivityOptionsCompat options = ActivityOptionsCompat.
+//                    makeSceneTransitionAnimation((Activity) mContext, p1);
+//
+//            mContext.startActivity(intent, options.toBundle());
         }
     }
 
