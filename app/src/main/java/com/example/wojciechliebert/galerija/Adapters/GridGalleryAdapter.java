@@ -2,6 +2,7 @@ package com.example.wojciechliebert.galerija.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,7 +14,7 @@ import com.bumptech.glide.Glide;
 import com.example.wojciechliebert.galerija.PagerActivity;
 import com.example.wojciechliebert.galerija.R;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Created by wojciech.liebert on 28.11.2017.
@@ -21,9 +22,9 @@ import java.util.List;
 
 public class GridGalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private Context mContext;
-    private List<Integer> mImageList;
+    private ArrayList<Integer> mImageList;
 
-    public GridGalleryAdapter(Context context, List<Integer> imageList) {
+    public GridGalleryAdapter(Context context, ArrayList<Integer> imageList) {
         mContext = context;
         mImageList = imageList;
     }
@@ -42,6 +43,8 @@ public class GridGalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         @Override
         public void onClick(View view) {
             Intent intent = new Intent(mContext, PagerActivity.class);
+            Bundle bundle = new Bundle(10);
+            bundle.putIntegerArrayList("list", mImageList);
             mContext.startActivity(intent);
         }
     }
