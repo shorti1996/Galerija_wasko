@@ -121,4 +121,13 @@ public class GalleryPagerAdapter extends PagerAdapter {
     private boolean post(Runnable runnable) {
         return new android.os.Handler(mContext.getMainLooper()).post(runnable);
     }
+
+    public void postGoTo(final int position) {
+        post(new Runnable() {
+            @Override
+            public void run() {
+                mViewPager.setCurrentItem(position);
+            }
+        });
+    }
 }
