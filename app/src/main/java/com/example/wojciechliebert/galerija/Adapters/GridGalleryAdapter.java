@@ -47,7 +47,7 @@ public class GridGalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             intent.putExtra(IMAGE_INDEX_EXTRA, getAdapterPosition());
             mContext.startActivity(intent);
 
-            // Don't because the adapter is fucking stoopid
+//            Don't because the adapter is fucking stoopid
 //            Pair<View, String> p1 = Pair.create(((View) galleryImage), "image_transition");
 //            ActivityOptionsCompat options = ActivityOptionsCompat.
 //                    makeSceneTransitionAnimation((Activity) mContext, p1);
