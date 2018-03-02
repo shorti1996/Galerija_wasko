@@ -1,9 +1,9 @@
 package com.example.wojciechliebert.galerija;
 
+import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 
 import com.example.wojciechliebert.galerija.Adapters.GalleryPagerAdapter;
 import com.example.wojciechliebert.galerija.Animations.ZoomOutPageTransformer;
@@ -11,7 +11,7 @@ import com.example.wojciechliebert.galerija.Animations.ZoomOutPageTransformer;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class PagerActivity extends AppCompatActivity {
+public class PagerActivity extends Activity {
 
     @BindView(R.id.viewpager)
     ViewPager mViewPager;
@@ -21,6 +21,8 @@ public class PagerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+//                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_pager);
         ButterKnife.bind(this);
 

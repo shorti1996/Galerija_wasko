@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".PagerActivity"
+            android:theme="@style/AppFullScreenTheme"
             android:configChanges="orientation">
         </activity>
     </application>
