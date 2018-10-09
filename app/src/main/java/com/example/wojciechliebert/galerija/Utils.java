@@ -12,7 +12,7 @@ public class Utils {
 
     public static ArrayList<Integer> getImagesIdentifiers(Context context) {
         int resID;
-        int imgnum = 1;
+        int imgnum = 5;
         ArrayList<Integer> images = new ArrayList<>();
 
         do {
