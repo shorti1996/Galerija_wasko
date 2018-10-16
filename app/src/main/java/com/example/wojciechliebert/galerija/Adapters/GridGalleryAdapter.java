@@ -1,5 +1,7 @@
 package com.example.wojciechliebert.galerija.Adapters;
 
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
@@ -45,7 +47,11 @@ public class GridGalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         public void onClick(View view) {
             Intent intent = new Intent(mContext, PagerActivity.class);
             intent.putExtra(IMAGE_INDEX_EXTRA, getAdapterPosition());
-            mContext.startActivity(intent);
+            mContext.startActivity(intent,
+                    ActivityOptions.makeSceneTransitionAnimation(((Activity) mContext)).toBundle());
+
+//            mContext.startActivity(intent);
+
 
 //            Don't because the adapter is fucking stoopid
 //            Pair<View, String> p1 = Pair.create(((View) galleryImage), "image_transition");

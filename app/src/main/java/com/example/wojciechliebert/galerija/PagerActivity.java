@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.transition.Explode;
+import android.view.Window;
 
 import com.example.wojciechliebert.galerija.Adapters.GalleryPagerAdapter;
 import com.example.wojciechliebert.galerija.Animations.ZoomOutPageTransformer;
@@ -20,6 +22,9 @@ public class PagerActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getWindow().setAllowEnterTransitionOverlap(true);
+        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+        getWindow().setEnterTransition(new Explode());
         super.onCreate(savedInstanceState);
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 //                WindowManager.LayoutParams.FLAG_FULLSCREEN);
